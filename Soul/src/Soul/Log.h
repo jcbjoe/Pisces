@@ -4,6 +4,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace Soul
 {
@@ -28,8 +29,8 @@ namespace Soul
 #define SL_CORE_FATAL(...)   ::Soul::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 // Client log macros
-#define SL_CLIENT_TRACE(...) ::Soul::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define SL_CLIENT_ERROR(...) ::Soul::Log::GetClientLogger()->error(__VA_ARGS__)
-#define SL_CLIENT_WARN(...)  ::Soul::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define SL_CLIENT_INFO(...)  ::Soul::Log::GetClientLogger()->info(__VA_ARGS__)
-#define SL_CLIENT_FATAL(...) ::Soul::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define SL_TRACE(...) ::Soul::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define SL_ERROR(...) ::Soul::Log::GetClientLogger()->error(__VA_ARGS__)
+#define SL_WARN(...)  ::Soul::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define SL_INFO(...)  ::Soul::Log::GetClientLogger()->info(__VA_ARGS__)
+#define SL_FATAL(...) ::Soul::Log::GetClientLogger()->fatal(__VA_ARGS__)
