@@ -40,6 +40,12 @@
     <ClInclude Include="src\Soul\Events\MouseEvent.h">
       <Filter>Soul\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Soul\Layer.h">
+      <Filter>Soul</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Soul\LayerStack.h">
+      <Filter>Soul</Filter>
+    </ClInclude>
     <ClInclude Include="src\Soul\Log.h">
       <Filter>Soul</Filter>
     </ClInclude>
@@ -53,6 +59,12 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Soul\Application.cpp">
+      <Filter>Soul</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Soul\Layer.cpp">
+      <Filter>Soul</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Soul\LayerStack.cpp">
       <Filter>Soul</Filter>
     </ClCompile>
     <ClCompile Include="src\Soul\Log.cpp">
