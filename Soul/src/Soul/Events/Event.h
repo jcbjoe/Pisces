@@ -2,9 +2,6 @@
 
 #include "Soul/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Soul
 {
 	// Events in Soul are currently blocking, meaning when an event occurs it

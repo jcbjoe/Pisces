@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Soul
 {
 	class SOUL_API MouseMovedEvent : public Event
