@@ -6,6 +6,11 @@ extern Soul::Application* Soul::CreateApplication();
 
 int main(int argc, char** argv)
 {
+
+	Soul::Log::Init();
+	SL_CORE_WARN("Initialised Core Log");
+	SL_CLIENT_INFO("Initialised Client Log");
+
 	auto app = Soul::CreateApplication();
 
 	app->Run();
