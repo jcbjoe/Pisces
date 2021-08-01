@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Soul/vendor/GLFW/include"
 IncludeDir["Glad"] = "Soul/vendor/Glad/include"
 IncludeDir["ImGUI"] = "Soul/vendor/imgui"
+IncludeDir["glm"] = "Soul/vendor/glm"
 
 include "Soul/vendor/Glad"
 
@@ -34,7 +35,9 @@ project "Soul"
 	files 
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -44,6 +47,7 @@ project "Soul"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGUI}",
+		"%{IncludeDir.glm}"
 	}
 	
 	links
@@ -66,7 +70,7 @@ project "Soul"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
@@ -102,7 +106,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Soul/vendor/spdlog/include",
-		"Soul/src"
+		"Soul/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links

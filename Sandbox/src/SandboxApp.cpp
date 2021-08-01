@@ -4,7 +4,9 @@ class ExampleLayer : public Soul::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example") {}
+		: Layer("Example")
+	{
+	}
 
 	void OnUpdate() override
 	{
