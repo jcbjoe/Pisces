@@ -47,9 +47,6 @@ namespace Soul {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			auto [x, y] = Input::GetMousePosition();
-			SL_CORE_TRACE("{0}, {1}", x, y);
-
 			m_Window->OnUpdate();
 		}
 	}
@@ -61,7 +58,7 @@ namespace Soul {
 
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClosed));
 
-		SL_CORE_TRACE("{0}", e);
+		//SL_CORE_TRACE("{0}", e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{

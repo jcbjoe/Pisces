@@ -8,12 +8,17 @@ public:
 
 	void OnUpdate() override
 	{
-		SL_INFO("ExampleLayer::Update");
+		//SL_INFO("ExampleLayer::Update");
+
+		if (Soul::Input::IsKeyPressed(SL_KEY_ENTER))
+		{
+			SL_TRACE("Enter key pressed!");
+		}
 	}
 
 	void OnEvent(Soul::Event& event) override
 	{
-		SL_TRACE("{0}", event);
+		//SL_TRACE("{0}", event);
 	}
 };
 
