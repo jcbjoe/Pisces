@@ -32,6 +32,10 @@ namespace Soul
 		bool OnKeyTypedEvent(KeyTypedEvent& e);
 
 		bool OnWindowResizedEvent(WindowResizeEvent& e);
+
+		static const char* GetClipboardText(void* user_data);
+
+		static void SetClipboardText(void* user_data, const char* text);
 	};
 }
 

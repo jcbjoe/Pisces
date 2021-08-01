@@ -33,6 +33,9 @@ namespace Soul
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
+		io.SetClipboardTextFn = SetClipboardText;
+		io.GetClipboardTextFn = GetClipboardText;
+
 		// TEMPORARY: Should eventually use Soul keycodes
 		io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
 		io.KeyMap[ImGuiKey_LeftArrow] = GLFW_KEY_LEFT;
@@ -172,5 +175,15 @@ namespace Soul
 		glViewport(0, 0, e.GetWidth(), e.GetHeight());
 
 		return false;
+	}
+
+	const char* ImGuiLayer::GetClipboardText(void* user_data)
+	{
+		return glfwGetClipboardString((GLFWwindow*)user_data);
+	}
+
+	void ImGuiLayer::SetClipboardText(void* user_data, const char* text)
+	{
+		glfwSetClipboardString((GLFWwindow*)user_data, text);
 	}
 }
