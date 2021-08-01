@@ -1,12 +1,16 @@
 [submodule "Soul/vendor/spdlog"]
 	path = Soul/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+	ignore = dirty
 [submodule "Soul/vendor/GLFW"]
 	path = Soul/vendor/GLFW
 	url = https://github.com/glfw/glfw
+	ignore = dirty
 [submodule "Soul/vendor/imgui"]
 	path = Soul/vendor/imgui
 	url = https://github.com/ocornut/imgui
+	ignore = dirty
 [submodule "Soul/vendor/glm"]
 	path = Soul/vendor/glm
 	url = https://github.com/g-truc/glm
+	ignore = dirty
