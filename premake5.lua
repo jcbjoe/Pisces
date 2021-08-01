@@ -15,7 +15,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Soul/vendor/GLFW/include"
 IncludeDir["Glad"] = "Soul/vendor/Glad/include"
-IncludeDir["ImGUI"] = "Soul/vendor/imgui"
+IncludeDir["ImGui"] = "Soul/vendor/imgui"
 IncludeDir["glm"] = "Soul/vendor/glm"
 
 include "Soul/vendor/Glad"
@@ -46,7 +46,7 @@ project "Soul"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGUI}",
+		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}"
 	}
 	
@@ -54,7 +54,7 @@ project "Soul"
 	{
 		"GLFW",
 		"Glad",
-		"ImGUI",
+		"ImGui",
 		"opengl32.lib",
 	}
 
@@ -186,13 +186,17 @@ project "GLFW"
     filter { "system:windows", "configurations:Release" }
         buildoptions "/MT"
 
-project "ImGUI"
+project "ImGui"
 	location "Soul/vendor/imgui"
     kind "StaticLib"
     language "C++"
     
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	defines{
+		"IMGUI_API=__declspec(dllexport)"
+	}
 
 	files
 	{
