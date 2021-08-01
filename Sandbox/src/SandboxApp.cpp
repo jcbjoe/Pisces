@@ -1,4 +1,5 @@
 #include "Soul.h"
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Soul::Layer
 {
@@ -22,6 +23,13 @@ public:
 	{
 		//SL_TRACE("{0}", event);
 	}
+
+	//virtual void OnImGuiRender() override
+	//{
+	//	ImGui::Begin("Test");
+	//	ImGui::Text("Hello World");
+	//	ImGui::End();
+	//}
 };
 
 class Sandbox : public Soul::Application
@@ -30,7 +38,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Soul::ImGuiLayer());
 	}
 
 	~Sandbox()
