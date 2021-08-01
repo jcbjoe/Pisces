@@ -4,3 +4,6 @@
 [submodule "Soul/vendor/GLFW"]
 	path = Soul/vendor/GLFW
 	url = https://github.com/glfw/glfw
+[submodule "Soul/vendor/imgui"]
+	path = Soul/vendor/imgui
+	url = https://github.com/ocornut/imgui

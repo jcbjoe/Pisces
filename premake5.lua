@@ -15,6 +15,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Soul/vendor/GLFW/include"
 IncludeDir["Glad"] = "Soul/vendor/Glad/include"
+IncludeDir["ImGUI"] = "Soul/vendor/imgui"
 
 include "Soul/vendor/Glad"
 
@@ -40,14 +41,16 @@ project "Soul"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGUI}",
 	}
 	
 	links
 	{
 		"GLFW",
 		"Glad",
-		"opengl32.lib"
+		"ImGUI",
+		"opengl32.lib",
 	}
 
 	filter "system:windows"
@@ -174,5 +177,36 @@ project "GLFW"
             "_GLFW_WIN32",
             "_CRT_SECURE_NO_WARNINGS"
 		}
+    filter { "system:windows", "configurations:Release" }
+        buildoptions "/MT"
+
+project "ImGUI"
+	location "Soul/vendor/imgui"
+    kind "StaticLib"
+    language "C++"
+    
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+        "%{prj.location}/imconfig.h",
+        "%{prj.location}/imgui.h",
+        "%{prj.location}/imgui.cpp",
+        "%{prj.location}/imgui_draw.cpp",
+        "%{prj.location}/imgui_internal.h",
+		"%{prj.location}/imgui_tables.cpp",
+        "%{prj.location}/imgui_widgets.cpp",
+        "%{prj.location}/imstb_rectpack.h",
+        "%{prj.location}/imstb_textedit.h",
+        "%{prj.location}/imstb_truetype.h",
+		"%{prj.location}/imgui_demo.cpp"
+    }
+    
+	filter "system:windows"
+        systemversion "latest"
+        staticruntime "On"
+		cppdialect "C++17"
+        
     filter { "system:windows", "configurations:Release" }
         buildoptions "/MT"
