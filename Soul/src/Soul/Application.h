@@ -8,6 +8,10 @@
 #include "Events/ApplicationEvent.h"
 #include "Soul/ImGui/ImGuiLayer.h"
 
+#include "Soul/Renderer/Shader.h"
+#include "Soul/Renderer/Buffer.h"
+#include "Soul/Renderer/VertexArray.h"
+
 namespace Soul {
 
 	class SOUL_API Application
@@ -32,6 +36,12 @@ namespace Soul {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+		std::shared_ptr<VertexBuffer> m_VertexBuffer;
+		std::shared_ptr<IndexBuffer> m_IndexBuffer;
+
 
 		static Application* s_Instance;
 	};
